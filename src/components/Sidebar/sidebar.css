@@ -1,0 +1,33 @@
+.side-bar {
+  position: absolute;
+
+  width: 300px;
+  background: rgba(7, 7, 7, 0.5);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  top: 60px;
+  right: 0px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  gap: 20px;
+  transition: all 0.3s;
+}
+
+.side-bar-hidden-position {
+  opacity: 0;
+}
+.side-bar-visible-position {
+  opacity: 1;
+}
+
+.side-bar-button {
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding-bottom: 5px;
+  text-decoration: none;
+}

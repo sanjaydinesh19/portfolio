@@ -1,0 +1,61 @@
+.project-container {
+    height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    overflow-y: auto; 
+  }
+  .project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .project-card {
+    margin-top: 2em;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .project-card:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-5px);
+  }
+  
+  .project-card:hover .project-info h3,
+  .project-card:hover .project-info p {
+    color: black;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid white;
+  }
+  
+  .project-info {
+    padding: 1rem;
+  }
+  
+  .project-info h3 {
+    margin-top: 0;
+    color: white;
+    transition: color 0.2s;
+  }
+  
+  .project-info p {
+    color: #ccc;
+    margin-bottom: 0;
+    transition: color 0.2s;
+  }
+
+  

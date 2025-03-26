@@ -1,0 +1,115 @@
+.container {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+}
+.container-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+.container-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.welcome-message {
+  font-size: 20px;
+  position: relative;
+  top: 15px;
+}
+
+.resume-message{
+  font-size:  20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.name-title {
+  font-size: 100px;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.resume-button {
+  cursor: pointer;
+  width: 150px;
+  font-size: 20px;
+  border: 1px solid #2e2e2e;
+  background-color: #141414;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: all 0.5s ease;
+}
+.resume-button:hover {
+  background-color: #006cff;
+  border: 1 solid #006cff;
+}
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+.social-icon {
+  height: 35px;
+  cursor: pointer;
+}
+.about-section {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.skills-section {
+  margin-top: 20px;
+}
+
+.skill {
+  margin-bottom: 10px;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.progress-bar {
+  width: 90%;
+  background-color: #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 10px;
+  width: 0%;
+  transition: width 2s ease-in-out;
+}
+
+.react {
+  background-color: #61dafb;
+  width: 80%;
+}
+
+.python {
+  background-color: #ffd43b;
+  width: 90%;
+}
+
+.ml {
+  background-color: #4caf50;
+  width: 75%;
+}
+
+.ros {
+  background-color: #8a2be2;
+  width: 70%;
+}
+
+
