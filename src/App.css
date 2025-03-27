@@ -35,11 +35,6 @@
 
 .social-icons {
   margin-bottom: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.social-icons:hover{
-  transform: scale(1.1);
 }
 
 .resume-button {
@@ -64,6 +59,10 @@
 .social-icon {
   height: 35px;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.social-icon:hover{
+  transform: scale(1.1);
 }
 .about-section {
   margin-bottom: 20px;
