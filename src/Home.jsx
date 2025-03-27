@@ -45,7 +45,7 @@ function Home() {
         <div className="container-right">
           <div className="about-section">
             <h2>About Me</h2>
-            <p>AI Enthusiast | Robotics Engineer</p>
+            <p>AI Enthusiast | Robotics Engineer Aspirant | B.Tech Student at VIT Chennai</p>
           </div>
           <div className="skills-section">
             <h2>Skills</h2>
