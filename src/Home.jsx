@@ -2,8 +2,52 @@ import "./App.css";
 import githubIcon from "./assets/github.png";
 import linkedInIcon from "./assets/linkedin.png";
 import Navbar from "./components/Navbar/Navbar";
+import { useState, useEffect, useRef } from "react";
 
 function Home() {
+  const [typedName, setTypedName] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const nameRef = useRef(null);
+  const fullName = "Sanjay Dinesh";
+  const typingSpeed = 100;
+  const [nameWidth,setNameWidth] = useState(0);
+
+  //Hidden Span for Name Width
+  useEffect(()=>{
+    const measureSpan = document.createElement("span");
+    measureSpan.style.position = "absolute";
+    measureSpan.style.visibility = "hidden";
+    measureSpan.style.whiteSpace = "nowrap";
+    measureSpan.style.fontSize = "100px";
+    measureSpan.textContent = fullName;
+    document.body.appendChild(measureSpan);
+
+    setNameWidth(measureSpan.offsetWidth);
+
+    //Clean up
+    return () => document.body.removeChild(measureSpan);
+  },[fullName]);
+  
+  useEffect(()=>{
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if(currentIndex < fullName.length){
+        setTypedName(fullName.substring(0,currentIndex+1));
+        currentIndex++;
+      }else{
+        clearInterval(typingInterval);
+        const blinkInterval = setInterval(() => {
+          setShowCursor(prev => !prev);
+        }, 500);
+        setTimeout(() => {
+          clearInterval(blinkInterval);
+          setShowCursor(false);
+        }, 2000);
+      }
+    }, typingSpeed);
+    return () => clearInterval(typingInterval);
+  }, [fullName,typingSpeed]);
+
   const handleDownloadResume = () => {
     const resumeUrl = "/Sanjay_Dinesh_Resume.pdf";
     const link = document.createElement("a");
@@ -20,7 +64,10 @@ function Home() {
       <div className="container">
         <div className="container-left">
           <div className="welcome-message">Hello! Welcome to my portfolio, I am</div>
-          <div className="name-title">Sanjay Dinesh</div>
+          <div className="name-title" ref={nameRef} style={{width: `${nameWidth}px`}}>
+            {typedName}
+            <span className={`cursor ${showCursor ? 'visible': ''}`}>|</span>
+            </div>
           <div className="social-icons">
             <a 
               href="https://github.com/sanjaydinesh19" 
