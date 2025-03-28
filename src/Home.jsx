@@ -7,46 +7,40 @@ import { useState, useEffect, useRef } from "react";
 function Home() {
   const [typedName, setTypedName] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [isMeasuring, setIsMeasuring] = useState(true);
   const nameRef = useRef(null);
   const fullName = "Sanjay Dinesh";
   const typingSpeed = 100;
-  const [nameWidth,setNameWidth] = useState(0);
+  const measureRef = useRef(null);
 
-  //Hidden Span for Name Width
   useEffect(()=>{
-    const measureSpan = document.createElement("span");
-    measureSpan.style.position = "absolute";
-    measureSpan.style.visibility = "hidden";
-    measureSpan.style.whiteSpace = "nowrap";
-    measureSpan.style.fontSize = "100px";
-    measureSpan.textContent = fullName;
-    document.body.appendChild(measureSpan);
+    if(!isMeasuring && nameRef.current){
+      let currentIndex = 0;
+      const typingInterval = setInterval(() => {
+        if(currentIndex < fullName.length){
+          setTypedName(fullName.substring(0,currentIndex+1));
+          currentIndex++;
+        }else{
+          clearInterval(typingInterval);
+          const blinkInterval = setInterval(() => {
+            setShowCursor(prev => !prev);
+          }, 500);
+          setTimeout(() => {
+            clearInterval(blinkInterval);
+            setShowCursor(false);
+          }, 2000);
+        }
+      }, typingSpeed);
+      return () => clearInterval(typingInterval);
+    }
+  }, [isMeasuring,fullName,typingSpeed]);
 
-    setNameWidth(measureSpan.offsetWidth);
-
-    //Clean up
-    return () => document.body.removeChild(measureSpan);
-  },[fullName]);
-  
   useEffect(()=>{
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if(currentIndex < fullName.length){
-        setTypedName(fullName.substring(0,currentIndex+1));
-        currentIndex++;
-      }else{
-        clearInterval(typingInterval);
-        const blinkInterval = setInterval(() => {
-          setShowCursor(prev => !prev);
-        }, 500);
-        setTimeout(() => {
-          clearInterval(blinkInterval);
-          setShowCursor(false);
-        }, 2000);
-      }
-    }, typingSpeed);
-    return () => clearInterval(typingInterval);
-  }, [fullName,typingSpeed]);
+    if(measureRef.current){
+      measureRef.current.offsetWidth;
+      setIsMeasuring(false);
+    }
+  },[])
 
   const handleDownloadResume = () => {
     const resumeUrl = "/Sanjay_Dinesh_Resume.pdf";
@@ -61,10 +55,14 @@ function Home() {
   return (
     <>
       <Navbar />
+      <div ref = {measureRef}
+      style={{position:"absolute",visibility:"hidden",whiteSpace:"nowrap",fontSize:"100px"}}>
+        {fullName}
+      </div>
       <div className="container">
         <div className="container-left">
           <div className="welcome-message">Hello! Welcome to my portfolio, I am</div>
-          <div className="name-title" ref={nameRef} style={{width: `${nameWidth}px`}}>
+          <div className="name-title" ref={nameRef} style={{visibility: isMeasuring ? "hidden" : "visible",width: measureRef.current?.offsetWidth}}>
             {typedName}
             <span className={`cursor ${showCursor ? 'visible': ''}`}>|</span>
             </div>
