@@ -8,10 +8,18 @@ function Home() {
   const [typedName, setTypedName] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [isMeasuring, setIsMeasuring] = useState(true);
+  const [animateSkills, setAnimateSkills] = useState(false);
   const nameRef = useRef(null);
   const fullName = "Sanjay Dinesh";
-  const typingSpeed = 100;
+  const typingSpeed = 150;
   const measureRef = useRef(null);
+
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setAnimateSkills(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  })
 
   useEffect(()=>{
     if(!isMeasuring && nameRef.current){
@@ -96,19 +104,19 @@ function Home() {
             <h2>Skills</h2>
             <div className="skill">
               <span>Python</span>
-              <div className="progress-bar"><div className="progress react"></div></div>
+              <div className="progress-bar"><div className="progress python" style={{width: animateSkills ? "90%" : "0%"}}></div></div>
             </div>
             <div className="skill">
               <span>Computer Vision</span>
-              <div className="progress-bar"><div className="progress python"></div></div>
+              <div className="progress-bar"><div className="progress cv" style={{width: animateSkills ? "85%" : "0%"}}></div></div>
             </div>
             <div className="skill">
               <span>Machine Learning</span>
-              <div className="progress-bar"><div className="progress ml"></div></div>
+              <div className="progress-bar"><div className="progress ml" style={{width: animateSkills ? "75%" : "0%"}}></div></div>
             </div>
             <div className="skill">
               <span>ROS</span>
-              <div className="progress-bar"><div className="progress ros"></div></div>
+              <div className="progress-bar"><div className="progress ros" style={{width: animateSkills ? "70%" : "0%"}}></div></div>
             </div>
           </div>
         </div>

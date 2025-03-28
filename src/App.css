@@ -119,28 +119,35 @@
 
 .progress {
   height: 10px;
-  width: 0%;
-  transition: width 2s ease-in-out;
+  transition: width 1s ease-in-out;
 }
 
-.react {
+.cv {
   background-color: #61dafb;
-  width: 80%;
 }
 
 .python {
   background-color: #ffd43b;
-  width: 90%;
 }
 
 .ml {
   background-color: #4caf50;
-  width: 75%;
 }
 
 .ros {
   background-color: #8a2be2;
-  width: 70%;
 }
 
+.skill :nth-child(1).progress{
+  transition-delay: 0.1s;
+}
+.skill :nth-child(2).progress{
+  transition-delay: 0.3s;
+}
+.skill :nth-child(3).progress{
+  transition-delay: 0.5s;
+}
+.skill :nth-child(4).progress{
+  transition-delay: 0.7s;
+}
 
