@@ -1,3 +1,16 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: black;   /* ✅ ensures full-page black */
+  color: white;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: black;   /* ✅ keeps React root black */
+}
+
+
 .container {
   height: 100vh;
   background-color: black;
@@ -6,6 +19,16 @@
 
   grid-template-columns: 1fr 1fr;
 }
+
+.page-container {
+  min-height: 100vh;   /* ✅ grows naturally */
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .container-left {
   display: flex;
   flex-direction: column;
