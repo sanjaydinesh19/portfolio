@@ -98,4 +98,15 @@
   .contact-submit-button:hover {
     background: #0056b3;
   }
-  
+  .contact-status-message {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: green; 
+}
+
+
+.contact-status-message:contains("Oops") {
+  color: red;
+}

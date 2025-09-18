@@ -51,7 +51,7 @@ function Home() {
   },[])
 
   const handleDownloadResume = () => {
-    const resumeUrl = "/Resume_June_2025.pdf";
+    const resumeUrl = "/Resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Sanjay_Dinesh_Resume.pdf";

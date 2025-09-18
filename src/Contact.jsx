@@ -3,10 +3,11 @@ import githubIcon from "./assets/github.png";
 import linkedInIcon from "./assets/linkedin.png";
 import Navbar from "./components/Navbar/Navbar";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 function Contact() {
   const form = useRef();
+  const [statusMessage, setStatusMessage] = useState(""); // 👈 for success/error
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -14,17 +15,17 @@ function Contact() {
     emailjs
       .sendForm(
         "service_awp38ey",     // Service ID
-        "template_l0ev4je",    //Template ID
+        "template_l0ev4je",    // Template ID
         form.current,
-        "hmcigYOwDaLIth2hE"      // Public Key
+        "hmcigYOwDaLIth2hE"    // Public Key
       )
       .then(
         (result) => {
-          alert("Message sent successfully! ✨");
+          setStatusMessage("✅ Message sent successfully!");
           form.current.reset();
         },
         (error) => {
-          alert("Oops, something went wrong: " + error.text);
+          setStatusMessage("❌ Oops, something went wrong. Please try again.");
         }
       );
   };
@@ -33,6 +34,7 @@ function Contact() {
     <>
       <Navbar />
       <div className="contact-container">
+        {/* Left side */}
         <div className="contact-container-left">
           <div className="contact-heading">Get in Touch</div>
           <p className="contact-message">
@@ -69,6 +71,7 @@ function Contact() {
           </div>
         </div>
 
+        {/* Right side */}
         <div className="contact-container-right">
           <div className="contact-form">
             <h2>Send Me a Message</h2>
@@ -104,6 +107,11 @@ function Contact() {
                 Send
               </button>
             </form>
+
+            {/* ✅ Inline status message */}
+            {statusMessage && (
+              <p className="contact-status-message">{statusMessage}</p>
+            )}
           </div>
         </div>
       </div>
