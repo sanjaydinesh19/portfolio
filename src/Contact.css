@@ -148,3 +148,18 @@
     font-size: 1rem;
   }
 }
+@media (max-width: 600px) {
+  .contact-container {
+    padding-top: 100px; /* slightly more spacing under SD for small screens */
+  }
+
+  .contact-heading {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .contact-message {
+    text-align: center;
+  }
+}
+
