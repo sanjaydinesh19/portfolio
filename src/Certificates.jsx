@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
-import "./gallery.css";
+import "./Gallery.css";
 import "./App.css"; 
 
 function Certificates() {
