@@ -11,6 +11,7 @@
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .menu-icon {
