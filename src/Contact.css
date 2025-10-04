@@ -110,3 +110,39 @@
 .contact-status-message:contains("Oops") {
   color: red;
 }
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .contact-container-left,
+  .contact-container-right {
+    max-width: 100%;
+  }
+
+  .contact-container-right {
+    background: #f9f9f9;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-heading {
+    font-size: 1.6rem;
+  }
+
+  .contact-message {
+    font-size: 1rem;
+  }
+
+  .contact-input-field, 
+  .contact-textarea-field {
+    font-size: 0.95rem;
+  }
+
+  .contact-submit-button {
+    font-size: 1rem;
+  }
+}

@@ -31,3 +31,14 @@
   padding-bottom: 5px;
   text-decoration: none;
 }
+@media (max-width: 600px) {
+  .side-bar {
+    width: 100%;
+    height: calc(100% - 60px);
+    align-items: center;
+  }
+
+  .side-bar-button {
+    font-size: 18px;
+  }
+}

@@ -1,11 +1,16 @@
 .navbar-container {
-  position: absolute;
+  position: fixed;
+  top: 0;
   width: 100%;
   color: white;
-  padding-top: 10px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .menu-icon {
@@ -14,10 +19,16 @@
 }
 
 .navbar-left-section {
-  margin-left: 30px;
-  font-size: 35px;
-  font-weight: bolder;
+  font-size: 32px;
+  font-weight: bold;
 }
-.navbar-right-section {
-  margin-right: 30px;
+
+@media (max-width: 768px) {
+  .navbar-left-section {
+    font-size: 26px;
+  }
+
+  .menu-icon {
+    height: 35px;
+  }
 }

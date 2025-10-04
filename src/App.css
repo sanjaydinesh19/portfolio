@@ -1,34 +1,38 @@
 html, body {
   height: 100%;
   margin: 0;
-  background-color: black;   /* ✅ ensures full-page black */
+  background-color: black;
   color: white;
 }
 
 #root {
   min-height: 100vh;
-  background-color: black;   /* ✅ keeps React root black */
+  background-color: black;
 }
 
+/* Shared base container for all pages */
+.container, .page-container {
+  background-color: black;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
 
+/* Home page layout (grid) */
 .container {
-  height: 100vh;
-  background-color: black;
-  color: white;
   display: grid;
-
   grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
 }
 
+/* Other pages layout (vertical) */
 .page-container {
-  min-height: 100vh;   /* ✅ grows naturally */
-  background-color: black;
-  color: white;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-
+/* Home left-right sections */
 .container-left {
   display: flex;
   flex-direction: column;
@@ -36,22 +40,21 @@ html, body {
   margin: auto;
   min-height: 400px;
   position: relative;
+  text-align: center;
+  padding: 20px;
 }
+
 .container-right {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.welcome-message {
-  font-size: 20px;
-  position: relative;
-  top: 15px;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 
-.resume-message{
-  font-size:  20px;
-  position: relative;
+/* Text sections */
+.welcome-message,
+.resume-message {
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -62,61 +65,67 @@ html, body {
   overflow: hidden;
   white-space: nowrap;
   height: 120px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+  margin: 0 auto;
 }
-.cursor{
+
+.cursor {
   position: absolute;
   opacity: 0;
   animation: blink 0.7s infinite;
 }
 
-.cursor.visible{
+.cursor.visible {
   opacity: 1;
 }
 
-@keyframes blink{
-  0%, 100% { opacity: 1;}
-  50% {opacity: 0;}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
+/* Social icons and button */
 .social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.resume-button {
-  cursor: pointer;
-  width: 150px;
-  font-size: 20px;
-  border: 1px solid #2e2e2e;
-  background-color: #141414;
-  color: white;
-  border-radius: 30px;
-  padding: 10px 20px;
-  transition: all 0.5s ease;
-}
-.resume-button:hover {
-  background-color: #006cff;
-  border: 1 solid #006cff;
-}
-.social-icons {
-  display: flex;
-  gap: 10px;
-}
 .social-icon {
   height: 35px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
-.social-icon:hover{
+
+.social-icon:hover {
   transform: scale(1.1);
 }
+
+.resume-button {
+  cursor: pointer;
+  width: 180px;
+  max-width: 90%;
+  font-size: 18px;
+  border: 1px solid #2e2e2e;
+  background-color: #141414;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: all 0.4s ease;
+  margin: 0 auto;
+}
+
+.resume-button:hover {
+  background-color: #006cff;
+  border: 1 solid #006cff;
+}
+
+/* Skills and progress bars */
 .about-section {
   margin-bottom: 20px;
   color: #fff;
+  text-align: center;
 }
 
 .skills-section {
@@ -138,6 +147,7 @@ html, body {
   background-color: #333;
   border-radius: 5px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .progress {
@@ -161,16 +171,52 @@ html, body {
   background-color: #8a2be2;
 }
 
-.skill :nth-child(1).progress{
-  transition-delay: 0.1s;
-}
-.skill :nth-child(2).progress{
-  transition-delay: 0.3s;
-}
-.skill :nth-child(3).progress{
-  transition-delay: 0.5s;
-}
-.skill :nth-child(4).progress{
-  transition-delay: 0.7s;
+/* Home page responsiveness */
+@media (max-width: 1024px) {
+  .name-title {
+    font-size: 80px;
+  }
 }
 
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .container-left, .container-right {
+    padding: 10px;
+  }
+
+  .name-title {
+    font-size: 60px;
+    height: auto;
+  }
+
+  .resume-button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .welcome-message,
+  .resume-message {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-title {
+    font-size: 40px;
+  }
+
+  .resume-button {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+
+  .welcome-message,
+  .resume-message {
+    font-size: 16px;
+  }
+}
