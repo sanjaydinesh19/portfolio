@@ -1,14 +1,16 @@
 /* Contact Page Styling */
 
 .contact-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    gap: 40px;
-    background-color: black;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* account for navbar height */
+  padding: 80px 20px 40px;     
+  gap: 40px;
+  background-color: black;
+  box-sizing: border-box;
+}
+
   
   .contact-container-left {
     flex: 1;
