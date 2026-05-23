@@ -40,7 +40,7 @@ function Home() {
   }, []);
 
   const handleDownloadResume = () => {
-    const resumeUrl = "/Resume.pdf";
+    const resumeUrl = "/Resume2.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Sanjay_Dinesh_Resume.pdf";
@@ -83,25 +83,37 @@ function Home() {
         <div className="container-right">
           <div className="about-section">
             <h2>About Me</h2>
-            <p>AI Enthusiast | Robotics Engineer Aspirant | B.Tech Student at VIT Chennai</p>
+            <p>
+              Robotics &amp; AI engineer building autonomous systems — from competition AUVs to quadruped robots.
+              B.Tech CSE (AI &amp; Robotics) at VIT Chennai &nbsp;·&nbsp; CGPA 9.67 &nbsp;·&nbsp; Dept. Rank 3.
+              Programming Team at Dreadnought Robotics, President of the AUV Club, and former AIML Lead at Microsoft Innovations Club.
+            </p>
           </div>
           <div className="skills-section">
             <h2>Skills</h2>
             <div className="skill">
               <span>Python</span>
-              <div className="progress-bar"><div className="progress python" style={{width: animateSkills ? "90%" : "0%"}}></div></div>
+              <div className="progress-bar"><div className="progress python" style={{width: animateSkills ? "92%" : "0%"}}></div></div>
+            </div>
+            <div className="skill">
+              <span>C / C++</span>
+              <div className="progress-bar"><div className="progress cpp" style={{width: animateSkills ? "78%" : "0%"}}></div></div>
             </div>
             <div className="skill">
               <span>Computer Vision</span>
-              <div className="progress-bar"><div className="progress cv" style={{width: animateSkills ? "85%" : "0%"}}></div></div>
+              <div className="progress-bar"><div className="progress cv" style={{width: animateSkills ? "88%" : "0%"}}></div></div>
+            </div>
+            <div className="skill">
+              <span>ROS / ROS2</span>
+              <div className="progress-bar"><div className="progress ros" style={{width: animateSkills ? "82%" : "0%"}}></div></div>
             </div>
             <div className="skill">
               <span>Machine Learning</span>
-              <div className="progress-bar"><div className="progress ml" style={{width: animateSkills ? "75%" : "0%"}}></div></div>
+              <div className="progress-bar"><div className="progress ml" style={{width: animateSkills ? "80%" : "0%"}}></div></div>
             </div>
             <div className="skill">
-              <span>ROS</span>
-              <div className="progress-bar"><div className="progress ros" style={{width: animateSkills ? "70%" : "0%"}}></div></div>
+              <span>LLM / LangChain</span>
+              <div className="progress-bar"><div className="progress llm" style={{width: animateSkills ? "72%" : "0%"}}></div></div>
             </div>
           </div>
         </div>

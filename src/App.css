@@ -173,20 +173,28 @@ html, body {
   transition: width 1s ease-in-out;
 }
 
+.python {
+  background-color: #ffd43b;
+}
+
+.cpp {
+  background-color: #00b4d8;
+}
+
 .cv {
   background-color: #61dafb;
 }
 
-.python {
-  background-color: #ffd43b;
+.ros {
+  background-color: #8a2be2;
 }
 
 .ml {
   background-color: #4caf50;
 }
 
-.ros {
-  background-color: #8a2be2;
+.llm {
+  background-color: #f97316;
 }
 
 /* Responsive adjustments */
