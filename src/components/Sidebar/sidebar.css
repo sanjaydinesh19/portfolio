@@ -1,44 +1,57 @@
 .side-bar {
-  position: fixed;          /* ✅ stays above everything */
-  top: 60px;                /* below navbar */
+  position: fixed;
+  top: 60px;
   right: 0;
   width: 300px;
-  height: calc(100% - 60px); /* ✅ full height below navbar */
-  background: rgba(7, 7, 7, 0.85);
+  height: calc(100% - 60px);
+  background: rgba(7, 7, 7, 0.95);
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.4);
   border-left: 2px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
-  gap: 20px;
-  transition: all 0.3s ease;
-  z-index: 999;             /* ✅ ensures it overlays content */
+  padding-top: 30px;
+  gap: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 999;
 }
 
 .side-bar-hidden-position {
+  transform: translateX(100%);
   opacity: 0;
+  pointer-events: none;
 }
+
 .side-bar-visible-position {
+  transform: translateX(0);
   opacity: 1;
+  pointer-events: all;
 }
 
 .side-bar-button {
   font-size: 20px;
   cursor: pointer;
   color: white;
-  padding-bottom: 5px;
   text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 16px 20px;
+  transition: background 0.2s ease;
 }
+
+.side-bar-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 @media (max-width: 600px) {
   .side-bar {
     width: 100%;
-    height: calc(100% - 60px);
     align-items: center;
   }
 
   .side-bar-button {
     font-size: 18px;
+    padding: 18px 20px;
   }
 }

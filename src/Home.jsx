@@ -70,7 +70,7 @@ function Home() {
       <div className="container">
         <div className="container-left">
           <div className="welcome-message">Hello! Welcome to my portfolio, I am</div>
-          <div className="name-title" ref={nameRef} style={{visibility: isMeasuring ? "hidden" : "visible",width: measureRef.current?.offsetWidth}}>
+          <div className="name-title" ref={nameRef} style={{visibility: isMeasuring ? "hidden" : "visible"}}>
             {typedName}
             <span className={`cursor ${showCursor ? 'visible': ''}`}>|</span>
             </div>
