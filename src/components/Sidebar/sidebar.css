@@ -44,6 +44,11 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+.side-bar-button.active {
+  color: #006cff;
+  background: rgba(0, 108, 255, 0.08);
+}
+
 @media (max-width: 600px) {
   .side-bar {
     width: 100%;

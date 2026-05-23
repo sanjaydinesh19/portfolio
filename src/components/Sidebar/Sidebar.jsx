@@ -1,19 +1,29 @@
+import { useLocation } from "react-router-dom";
 import "./sidebar.css";
-export default function Sidebar({ sideBarVisibility }) {
+
+const links = [
+  { label: "Home",         path: "/" },
+  { label: "Experience",   path: "/experience" },
+  { label: "Projects",     path: "/projects" },
+  { label: "Certificates", path: "/certificates" },
+  { label: "Contact",      path: "/contact" },
+];
+
+export default function Sidebar({ sideBarVisibility, onClose }) {
+  const { pathname } = useLocation();
+
   return (
-    <div
-      className={`side-bar ${
-        sideBarVisibility
-          ? "side-bar-visible-position"
-          : "side-bar-hidden-position"
-      }`}
-    >
-      <a href="/" className="side-bar-button">Home</a>
-      <a href="/experience" className="side-bar-button">Experience</a>
-      <a href="/projects" className="side-bar-button">Projects</a>
-      <a href="/certificates" className="side-bar-button">Certificates</a>
-      <a href="/contact" className="side-bar-button">Contact</a>
-      
+    <div className={`side-bar ${sideBarVisibility ? "side-bar-visible-position" : "side-bar-hidden-position"}`}>
+      {links.map(({ label, path }) => (
+        <a
+          key={path}
+          href={path}
+          onClick={onClose}
+          className={`side-bar-button ${pathname === path ? "active" : ""}`}
+        >
+          {label}
+        </a>
+      ))}
     </div>
   );
 }

@@ -17,7 +17,7 @@ function Home() {
       setAnimateSkills(true);
     }, 500);
     return () => clearTimeout(timer);
-  })
+  }, [])
 
   useEffect(()=>{
     let currentIndex = 0;

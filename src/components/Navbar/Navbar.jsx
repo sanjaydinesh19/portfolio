@@ -18,7 +18,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <Sidebar sideBarVisibility={sideBarVisibility} />
+      <Sidebar sideBarVisibility={sideBarVisibility} onClose={() => setSidebarVisibility(false)} />
     </>
   );
 }
