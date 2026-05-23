@@ -7,12 +7,10 @@ import { useState, useEffect, useRef } from "react";
 function Home() {
   const [typedName, setTypedName] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-  const [isMeasuring, setIsMeasuring] = useState(true);
   const [animateSkills, setAnimateSkills] = useState(false);
   const nameRef = useRef(null);
   const fullName = "Sanjay Dinesh";
   const typingSpeed = 150;
-  const measureRef = useRef(null);
 
   useEffect(()=>{
     const timer = setTimeout(() => {
@@ -22,33 +20,24 @@ function Home() {
   })
 
   useEffect(()=>{
-    if(!isMeasuring && nameRef.current){
-      let currentIndex = 0;
-      const typingInterval = setInterval(() => {
-        if(currentIndex < fullName.length){
-          setTypedName(fullName.substring(0,currentIndex+1));
-          currentIndex++;
-        }else{
-          clearInterval(typingInterval);
-          const blinkInterval = setInterval(() => {
-            setShowCursor(prev => !prev);
-          }, 500);
-          setTimeout(() => {
-            clearInterval(blinkInterval);
-            setShowCursor(false);
-          }, 2000);
-        }
-      }, typingSpeed);
-      return () => clearInterval(typingInterval);
-    }
-  }, [isMeasuring,fullName,typingSpeed]);
-
-  useEffect(()=>{
-    if(measureRef.current){
-      measureRef.current.offsetWidth;
-      setIsMeasuring(false);
-    }
-  },[])
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if(currentIndex < fullName.length){
+        setTypedName(fullName.substring(0,currentIndex+1));
+        currentIndex++;
+      }else{
+        clearInterval(typingInterval);
+        const blinkInterval = setInterval(() => {
+          setShowCursor(prev => !prev);
+        }, 500);
+        setTimeout(() => {
+          clearInterval(blinkInterval);
+          setShowCursor(false);
+        }, 2000);
+      }
+    }, typingSpeed);
+    return () => clearInterval(typingInterval);
+  }, []);
 
   const handleDownloadResume = () => {
     const resumeUrl = "/Resume.pdf";
@@ -63,14 +52,10 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div ref = {measureRef}
-      style={{position:"absolute",visibility:"hidden",whiteSpace:"nowrap",fontSize:"100px"}}>
-        {fullName}
-      </div>
       <div className="container">
         <div className="container-left">
           <div className="welcome-message">Hello! Welcome to my portfolio, I am</div>
-          <div className="name-title" ref={nameRef} style={{visibility: isMeasuring ? "hidden" : "visible"}}>
+          <div className="name-title" ref={nameRef}>
             {typedName}
             <span className={`cursor ${showCursor ? 'visible': ''}`}>|</span>
             </div>
