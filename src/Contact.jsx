@@ -24,7 +24,8 @@ function Contact() {
           setStatus({ message: "Message sent successfully!", type: "success" });
           form.current.reset();
         },
-        () => {
+        (err) => {
+          console.error("EmailJS error:", err);
           setStatus({ message: "Oops, something went wrong. Please try again.", type: "error" });
         }
       );
