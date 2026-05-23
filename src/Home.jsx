@@ -83,21 +83,13 @@ function Home() {
         <div className="container-right">
           <div className="about-section">
             <h2>About Me</h2>
-            <p>
-              Robotics &amp; AI engineer building autonomous systems — from competition AUVs to quadruped robots.
-              B.Tech CSE (AI &amp; Robotics) at VIT Chennai &nbsp;·&nbsp; CGPA 9.67 &nbsp;·&nbsp; Dept. Rank 3.
-              Programming Team at Dreadnought Robotics, President of the AUV Club, and former AIML Lead at Microsoft Innovations Club.
-            </p>
+            <p>Robotics &amp; AI Engineer | B.Tech CSE (AI &amp; Robotics) | VIT Chennai</p>
           </div>
           <div className="skills-section">
             <h2>Skills</h2>
             <div className="skill">
               <span>Python</span>
               <div className="progress-bar"><div className="progress python" style={{width: animateSkills ? "92%" : "0%"}}></div></div>
-            </div>
-            <div className="skill">
-              <span>C / C++</span>
-              <div className="progress-bar"><div className="progress cpp" style={{width: animateSkills ? "78%" : "0%"}}></div></div>
             </div>
             <div className="skill">
               <span>Computer Vision</span>

@@ -8,18 +8,11 @@ export default function Sidebar({ sideBarVisibility }) {
           : "side-bar-hidden-position"
       }`}
     >
-      <a href="/" className="side-bar-button">
-        Home
-      </a>
-      <a href="/certificates" className="side-bar-button">
-        Certificates
-      </a>
-      <a href="/projects" className="side-bar-button">
-        Projects
-      </a>
-      <a href="/contact" className="side-bar-button">
-        Contact
-      </a>
+      <a href="/" className="side-bar-button">Home</a>
+      <a href="/experience" className="side-bar-button">Experience</a>
+      <a href="/projects" className="side-bar-button">Projects</a>
+      <a href="/certificates" className="side-bar-button">Certificates</a>
+      <a href="/contact" className="side-bar-button">Contact</a>
       
     </div>
   );
