@@ -7,25 +7,25 @@ import { useRef, useState } from "react";
 
 function Contact() {
   const form = useRef();
-  const [statusMessage, setStatusMessage] = useState(""); // 👈 for success/error
+  const [status, setStatus] = useState({ message: "", type: "" });
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_awp38ey",     // Service ID
-        "template_l0ev4je",    // Template ID
+        "service_awp38ey",
+        "template_l0ev4je",
         form.current,
-        "hmcigYOwDaLIth2hE"    // Public Key
+        "hmcigYOwDaLIth2hE"
       )
       .then(
-        (result) => {
-          setStatusMessage("✅ Message sent successfully!");
+        () => {
+          setStatus({ message: "Message sent successfully!", type: "success" });
           form.current.reset();
         },
-        (error) => {
-          setStatusMessage("❌ Oops, something went wrong. Please try again.");
+        () => {
+          setStatus({ message: "Oops, something went wrong. Please try again.", type: "error" });
         }
       );
   };
@@ -108,9 +108,8 @@ function Contact() {
               </button>
             </form>
 
-            {/* ✅ Inline status message */}
-            {statusMessage && (
-              <p className="contact-status-message">{statusMessage}</p>
+            {status.message && (
+              <p className={`contact-status-message ${status.type}`}>{status.message}</p>
             )}
           </div>
         </div>
